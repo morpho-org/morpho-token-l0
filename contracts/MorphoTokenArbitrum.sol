@@ -8,11 +8,10 @@ import { ERC1967Utils } from "@openzeppelin/contracts/proxy/ERC1967/ERC1967Utils
 import { IMintableBurnable } from "@layerzerolabs/oft-evm/contracts/interfaces/IMintableBurnable.sol";
 
 contract MorphoTokenArbitrum is ERC20Upgradeable, AccessControlUpgradeable, UUPSUpgradeable, IMintableBurnable {
-    
     bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
     bytes32 public constant BURNER_ROLE = keccak256("BURNER_ROLE");
     bytes32 public constant UPGRADER_ROLE = keccak256("UPGRADER_ROLE");
-    
+
     constructor() {
         _disableInitializers();
     }
