@@ -1,6 +1,7 @@
 {
   "name": "@layerzerolabs/mint-burn-oft-adapter-example",
   "version": "0.1.1",
+  "packageManager": "pnpm@11.0.9",
   "private": true,
   "license": "MIT",
   "scripts": {
