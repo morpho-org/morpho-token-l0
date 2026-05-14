@@ -1,1 +1,19 @@
-minimumReleaseAge: 4320
+packages:
+  - .
+
+# Minimum age (in minutes) a package version must reach before pnpm will install it.
+# 7 days = 10080 minutes, preferred for supply-chain hardening.
+minimumReleaseAge: 10080
+minimumReleaseAgeIgnoreMissingTime: true
+resolutionMode: highest
+minimumReleaseAgeExclude:
+  - "@typescript-eslint/*" # legacy package metadata lacks time; required by LayerZero eslint config
+
+overrides:
+  ethers: ^5.7.2
+  hardhat-deploy: ^0.12.1
+
+packageExtensions:
+  "@safe-global/protocol-kit":
+    dependencies:
+      "@safe-global/safe-core-sdk-types": ^1.10.1
