@@ -1,5 +1,4 @@
 import { endpointIdToNetwork } from '@layerzerolabs/lz-definitions'
-import { Options } from '@layerzerolabs/lz-v2-utilities'
 
 export const deploymentMetadataUrl = 'https://metadata.layerzero-api.com/v1/metadata/deployments'
 
@@ -19,24 +18,6 @@ export async function getBlockExplorerLink(srcEid: number, txHash: string): Prom
         return `${explorer.replace(/\/+$/, '')}/tx/${txHash}`
     }
     return
-}
-
-function formatBigIntForDisplay(n: bigint) {
-    return n.toLocaleString().replace(/,/g, '_')
-}
-
-export function decodeLzReceiveOptions(hex: string): string {
-    try {
-        // Handle empty/undefined values first
-        if (!hex || hex === '0x') return 'No options set'
-        const options = Options.fromOptions(hex)
-        const lzReceiveOpt = options.decodeExecutorLzReceiveOption()
-        return lzReceiveOpt
-            ? `gas: ${formatBigIntForDisplay(lzReceiveOpt.gas)} , value: ${formatBigIntForDisplay(lzReceiveOpt.value)} wei`
-            : 'No executor options'
-    } catch (e) {
-        return `Invalid options (${hex.slice(0, 12)}...)`
-    }
 }
 
 // Get LayerZero scan link
